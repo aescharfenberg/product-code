@@ -1,6 +1,6 @@
 ﻿namespace Scharfenberg.ProductCode.Contracts
 {
-    public interface IProductCodeType
+    public interface IProductCodeSpecification
     {
         string Moniker { get; }
 

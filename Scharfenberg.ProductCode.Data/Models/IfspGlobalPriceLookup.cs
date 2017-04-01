@@ -36,7 +36,7 @@ namespace Scharfenberg.ProductCode.Data.Models
         public string Size { get; set; }
 
         [Column("NA SIZE")]
-        public string NaSize { get; set; }
+        public string NorthAmericanSize { get; set; }
 
         [Column("ROW SIZE")]
         public string RowSize { get; set; }

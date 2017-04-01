@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.ProductCode.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.ProductCode.Tests.Unit", "Scharfenberg.ProductCode.Tests.Unit\Scharfenberg.ProductCode.Tests.Unit.csproj", "{0ACAF88B-3E27-44EF-AB2C-D798D6A7A43D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.Extensions", "Scharfenberg.Extensions\Scharfenberg.Extensions.csproj", "{9F92DE2F-F2DF-4C51-B352-35F7460CC823}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{75474944-A11B-4FA2-8533-4EBE25463A66}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +35,10 @@ Global
 		{0ACAF88B-3E27-44EF-AB2C-D798D6A7A43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ACAF88B-3E27-44EF-AB2C-D798D6A7A43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ACAF88B-3E27-44EF-AB2C-D798D6A7A43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

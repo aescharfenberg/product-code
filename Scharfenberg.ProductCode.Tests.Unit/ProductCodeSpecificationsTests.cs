@@ -5,10 +5,10 @@ using Scharfenberg.ProductCode.Data;
 namespace Scharfenberg.ProductCode.Tests.Unit
 {
     [TestClass]
-    public class ProductCodeTypesTests
+    public class ProductCodeSpecificationsTests
     {
         [TestMethod]
-        public void ProductCodeTypes_Plu_IsValid_AllIfspGlobalPriceLookupData_True()
+        public void ProductCodeSpecifications_Plu_IsValid_BaseIfspGlobalPriceLookupData_True()
         {
             var priceLookupEnumerator = IfspGlobalPriceLookupData.GetEmumerator();
             while (priceLookupEnumerator.MoveNext())
@@ -19,7 +19,7 @@ namespace Scharfenberg.ProductCode.Tests.Unit
 
                 // Act
                 const bool expected = true;
-                var actual = ProductCodeTypes.Plu.IsValid(pluCode);
+                var actual = ProductCodeSpecifications.Plu.IsValid(pluCode);
 
                 // Assert
                 Assert.AreEqual(expected, actual, $"Known valid IFSP Global PLU '{pluCode}' IsValid = {actual}.");

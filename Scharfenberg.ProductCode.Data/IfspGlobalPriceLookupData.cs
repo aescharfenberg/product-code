@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Scharfenberg.ProductCode.Data.Models;
@@ -64,7 +65,7 @@ namespace Scharfenberg.ProductCode.Data
             var tokens = csvLine
                 .TrimStart('\"')
                 .TrimEnd('\"')
-                .Split("\",\"".ToCharArray());
+                .Split(new[] {"\",\""}, StringSplitOptions.None);
 
             return tokens;
         }

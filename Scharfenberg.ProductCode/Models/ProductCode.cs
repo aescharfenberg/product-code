@@ -12,6 +12,6 @@ namespace Scharfenberg.ProductCode.Models
 
         public string UccCode { get; set; }
 
-        public IProductCodeType ProductCodeType { get; set; }
+        public IProductCodeSpecification ProductCodeType { get; set; }
     }
 }

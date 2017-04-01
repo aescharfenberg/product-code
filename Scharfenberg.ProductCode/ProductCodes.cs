@@ -7,7 +7,7 @@ namespace Scharfenberg.ProductCode
     {
         public static IProductCode Parse(string code)
         {
-            var productCode = ProductCodeTypes.Parse(code).Single();
+            var productCode = ProductCodeSpecifications.Parse(code).Single();
             return productCode;
         }
     }
