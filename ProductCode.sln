@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.TestHelpers", "Scharfenberg.TestHelpers\Scharfenberg.TestHelpers.csproj", "{185773AC-CBDF-46A4-B200-A63742C284FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F92DE2F-F2DF-4C51-B352-35F7460CC823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{185773AC-CBDF-46A4-B200-A63742C284FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{185773AC-CBDF-46A4-B200-A63742C284FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{185773AC-CBDF-46A4-B200-A63742C284FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{185773AC-CBDF-46A4-B200-A63742C284FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

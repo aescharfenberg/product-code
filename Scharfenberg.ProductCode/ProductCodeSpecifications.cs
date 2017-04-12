@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Scharfenberg.ProductCode.Contracts;
 using Scharfenberg.ProductCode.Models;
+using Scharfenberg.ProductCode.Specifications;
 
 namespace Scharfenberg.ProductCode
 {
     public static class ProductCodeSpecifications
     {
-        public static IProductCodeSpecification Plu => new ProductCodeSpecification("PLU", 6, null);
+        public static IProductCodeSpecification Plu => new PriceLookupTypeSpecification();
 
         public static IProductCodeSpecification UpcE => new ProductCodeSpecification("UPC-E", 8, null);
 
