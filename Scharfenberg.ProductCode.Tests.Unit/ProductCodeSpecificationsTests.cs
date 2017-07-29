@@ -38,14 +38,15 @@ namespace Scharfenberg.ProductCode.Tests.Unit
                 // Arrange
                 var priceLookup = priceLookupEnumerator.Current;
                 var pluCode = priceLookup.PluCode;
-                var pluCodeWithCheckDigit = pluCode + Calculations.CalculateCheckDigit(pluCode);
-                const bool expected = true;
+                var checkDigit = pluCode + Calculations.CalculateCheckDigit(pluCode);
+                var pluCodeWithCheckDigit = checkDigit;
+                const bool expected = false;
 
                 // Act
                 var actual = ProductCodeSpecifications.Plu.IsValid(pluCodeWithCheckDigit);
 
                 // Assert
-                Assert.AreEqual(expected, actual, $"Known valid IFSP Global PLU '{pluCode}' IsValid = {actual}.");
+                Assert.AreEqual(expected, actual, $"Known valid IFSP Global PLU '{pluCode}' with check digit '{checkDigit}' (invalid) IsValid = {actual}.");
             }
         }
 
@@ -62,7 +63,7 @@ namespace Scharfenberg.ProductCode.Tests.Unit
                     new Models.ProductCode
                     {
                         Code = pluCode,
-                        CheckDigit = Calculations.CalculateCheckDigit(pluCode),
+                        CheckDigit = null,
                         ProductCodeType = ProductCodeSpecifications.Plu
                     };
 

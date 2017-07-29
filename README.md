@@ -8,14 +8,6 @@ A .NET (C#) implementation of a library to work with various types of product co
 
 ### Organic/Non-GMO Goods (PLU-6)
 
-## International Standard Book Number (ISBN)
-
-### ISBN-9
-
-### ISBN-10
-
-### ISBN-13
-
 ## Universal Product Code (UPC)
 
 ### UPC-A

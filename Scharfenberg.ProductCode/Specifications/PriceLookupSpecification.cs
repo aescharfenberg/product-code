@@ -5,7 +5,7 @@ using Scharfenberg.ProductCode.Contracts;
 
 namespace Scharfenberg.ProductCode.Specifications
 {
-    internal class PriceLookupTypeSpecification : IProductCodeSpecification
+    internal class PriceLookupSpecification : IProductCodeSpecification
     {
         public string Moniker => "PLU";
 
@@ -37,18 +37,16 @@ namespace Scharfenberg.ProductCode.Specifications
         public bool IsValid(string code)
         {
             var match = Match(code);
-            return match.Success;
+            return match != null && match.Success;
         }
 
         private Models.ProductCode BuildProductCode(Match match)
         {
-            var code = match.Groups["code"].Value;
-
             var productCode =
                 new Models.ProductCode
                 {
-                    Code = code,
-                    CheckDigit = Calculations.CalculateCheckDigit(code),
+                    Code = match.Value,
+                    CheckDigit = null,
                     ProductCodeType = this
                 };
 
@@ -60,38 +58,29 @@ namespace Scharfenberg.ProductCode.Specifications
             if (!RegularExpressions.PriceLookup.InitialRegex.IsMatch(code))
                 return null;
 
+            // ReSharper disable once JoinDeclarationAndInitializer
             Match match;
 
             match = RegularExpressions.PriceLookup.Series3000Regex.Match(code);
-            if (match.Success && IsCheckDigitValid(match))
+            if (match.Success)
                 return match;
 
             match = RegularExpressions.PriceLookup.Series4000Regex.Match(code);
-            if (match.Success && IsCheckDigitValid(match))
+            if (match.Success)
                 return match;
 
             match = RegularExpressions.PriceLookup.Series83000Regex.Match(code);
-            if (match.Success && IsCheckDigitValid(match))
+            if (match.Success)
                 return match;
 
             match = RegularExpressions.PriceLookup.Series84000Regex.Match(code);
-            if (match.Success && IsCheckDigitValid(match))
+            // ReSharper disable once ConvertIfStatementToReturnStatement
+            if (match.Success)
                 return match;
 
             return null;
         }
 
-        private static bool IsCheckDigitValid(Match match)
-        {
-            var checkDigitGroup = match.Groups["checkDigit"];
-            if (!checkDigitGroup.Success)
-                return true;
 
-            var code = match.Groups["code"].Value;
-            var checkDigit = checkDigitGroup.Value.ToCharArray().Single();
-            var calculatedCheckDigit = Calculations.CalculateCheckDigit(code);
-
-            return checkDigit == calculatedCheckDigit;
-        }
     }
 }

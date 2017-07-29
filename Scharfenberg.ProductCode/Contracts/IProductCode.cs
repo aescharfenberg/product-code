@@ -10,7 +10,7 @@ namespace Scharfenberg.ProductCode.Contracts
 
         int CodeLength { get; }
 
-        char CheckDigit { get; }
+        char? CheckDigit { get; }
 
         string UccCode { get; }
     }

@@ -8,7 +8,7 @@ namespace Scharfenberg.ProductCode.Models
 
         public int CodeLength => ProductCodeType.CodeLength;
 
-        public char CheckDigit { get; set; }
+        public char? CheckDigit { get; set; }
 
         public string UccCode { get; set; }
 
