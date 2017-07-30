@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Scharfenberg.ProductCode.Contracts;
+using Scharfenberg.ProductCode.Models;
 
 namespace Scharfenberg.ProductCode.Specifications
 {
@@ -9,7 +9,7 @@ namespace Scharfenberg.ProductCode.Specifications
     {
         public string Moniker => "PLU";
 
-        public int CodeLength => 6;
+        public int CodeLength => 5;
 
         public IProductCode Parse(string code)
         {
@@ -40,14 +40,20 @@ namespace Scharfenberg.ProductCode.Specifications
             return match != null && match.Success;
         }
 
-        private Models.ProductCode BuildProductCode(Match match)
+        private Models.ProductCode BuildProductCode(Capture match)
         {
+            var code = match.Value;
+
             var productCode =
                 new Models.ProductCode
                 {
-                    Code = match.Value,
+                    Code = code,
                     CheckDigit = null,
-                    ProductCodeType = this
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = Moniker,
+                        CodeLength = code.Length
+                    }
                 };
 
             return productCode;

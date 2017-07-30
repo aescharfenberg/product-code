@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Scharfenberg.ProductCode
 {
-    internal static class Calculations
+    public static class Calculations
     {
         /// <see cref="http://www.gs1.org/how-calculate-check-digit-manually"/>
         public static char CalculateCheckDigit(string code)

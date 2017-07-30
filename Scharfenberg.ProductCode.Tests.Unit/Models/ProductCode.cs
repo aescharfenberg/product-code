@@ -1,12 +1,12 @@
 ﻿using Scharfenberg.ProductCode.Contracts;
 
-namespace Scharfenberg.ProductCode.Models
+namespace Scharfenberg.ProductCode.Tests.Unit.Models
 {
     internal class ProductCode : IProductCode
     {
         public string Code { get; set; }
 
-        public int CodeLength => ProductCodeType.CodeLength;
+        public int CodeLength => Code.Length;
 
         public char? CheckDigit { get; set; }
 

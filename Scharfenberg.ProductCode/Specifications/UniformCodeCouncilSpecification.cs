@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Scharfenberg.ProductCode.Contracts;
+using Scharfenberg.ProductCode.Models;
 
 namespace Scharfenberg.ProductCode.Specifications
 {
@@ -49,7 +50,7 @@ namespace Scharfenberg.ProductCode.Specifications
         public bool IsValid(string code)
         {
             var match = Match(code);
-            return match.Success;
+            return match != null && match.Success;
         }
 
         private Models.ProductCode BuildProductCode(Match match)
@@ -59,7 +60,11 @@ namespace Scharfenberg.ProductCode.Specifications
                 {
                     Code = match.Value,
                     CheckDigit = match.Groups["checkDigit"].Value.ToCharArray().Single(),
-                    ProductCodeType = this
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = Moniker,
+                        CodeLength = CodeLength
+                    }
                 };
 
             return productCode;
@@ -75,15 +80,19 @@ namespace Scharfenberg.ProductCode.Specifications
             return null;
         }
 
-        private static bool IsCheckDigitValid(Match match)
+        private bool IsCheckDigitValid(Match match)
         {
             var checkDigitGroup = match.Groups["checkDigit"];
-            if (!checkDigitGroup.Success)
-                return true;
-
-            var code = match.Groups["code"].Value;
             var checkDigit = checkDigitGroup.Value.ToCharArray().Single();
-            var calculatedCheckDigit = Calculations.CalculateCheckDigit(code);
+
+            var code = match.Value;
+
+            // Leading zero does not count toward check digit for 13-digit UCCs.
+            if (CodeLength == 13 && code.StartsWith("0"))
+                code = code.Substring(1, code.Length - 1);
+
+            var codeWithoutCheckDigit = code.Substring(0, code.Length - 1);
+            var calculatedCheckDigit = Calculations.CalculateCheckDigit(codeWithoutCheckDigit);
 
             return checkDigit == calculatedCheckDigit;
         }

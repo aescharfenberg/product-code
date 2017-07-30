@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Scharfenberg.ProductCode.Contracts
+﻿namespace Scharfenberg.ProductCode.Contracts
 {
     public interface IProductCode
     {
@@ -12,6 +8,6 @@ namespace Scharfenberg.ProductCode.Contracts
 
         char? CheckDigit { get; }
 
-        string UccCode { get; }
+        IProductCodeType ProductCodeType { get; }
     }
 }

@@ -4,8 +4,6 @@
     {
         string Moniker { get; }
 
-        int CodeLength { get; }
-
         IProductCode Parse(string code);
 
         bool TryParse(string code, out IProductCode productCode);
