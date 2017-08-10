@@ -1,9 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
+  <PropertyGroup>    
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>DWG.ProductCode.Data</AssemblyName>
-    <RootNamespace>DWG.ProductCode.Data</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

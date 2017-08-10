@@ -6,8 +6,4 @@
     <RootNamespace>DWG.ProductCode</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DWG.Extensions\DWG.Extensions.csproj" />
-  </ItemGroup>
-
 </Project>
