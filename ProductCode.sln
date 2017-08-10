@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.ProductCode", "Scharfenberg.ProductCode\Scharfenberg.ProductCode.csproj", "{2C6D8B02-2A55-4776-BDBD-A4669BC96B1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWG.ProductCode", "DWG.ProductCode\DWG.ProductCode.csproj", "{2C6D8B02-2A55-4776-BDBD-A4669BC96B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.ProductCode.Data", "Scharfenberg.ProductCode.Data\Scharfenberg.ProductCode.Data.csproj", "{DD3BD704-DBD1-4240-A26B-D12116851332}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWG.ProductCode.Data", "DWG.ProductCode.Data\DWG.ProductCode.Data.csproj", "{DD3BD704-DBD1-4240-A26B-D12116851332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.ProductCode.Tests.Unit", "Scharfenberg.ProductCode.Tests.Unit\Scharfenberg.ProductCode.Tests.Unit.csproj", "{0ACAF88B-3E27-44EF-AB2C-D798D6A7A43D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWG.ProductCode.Tests.Unit", "DWG.ProductCode.Tests.Unit\DWG.ProductCode.Tests.Unit.csproj", "{0ACAF88B-3E27-44EF-AB2C-D798D6A7A43D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.Extensions", "Scharfenberg.Extensions\Scharfenberg.Extensions.csproj", "{9F92DE2F-F2DF-4C51-B352-35F7460CC823}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWG.Extensions", "DWG.Extensions\DWG.Extensions.csproj", "{9F92DE2F-F2DF-4C51-B352-35F7460CC823}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{75474944-A11B-4FA2-8533-4EBE25463A66}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scharfenberg.TestHelpers", "Scharfenberg.TestHelpers\Scharfenberg.TestHelpers.csproj", "{185773AC-CBDF-46A4-B200-A63742C284FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWG.TestHelpers", "DWG.TestHelpers\DWG.TestHelpers.csproj", "{185773AC-CBDF-46A4-B200-A63742C284FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
