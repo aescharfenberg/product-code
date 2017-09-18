@@ -57,6 +57,30 @@ namespace Scharfenberg.ProductCode.Tests.Unit
             // Assert
             AssertHelpers.AreComparablyEqual(expected, actual);
         }
+        
+         [TestMethod]
+        public void ProductCodeTypes_Interopolate_025200000148_ProductCodeTypeUpcA()
+        {
+            // Arrange
+            const string code = "250142";
+            var expected =
+                new Models.ProductCode
+                {
+                    Code = code,
+                    CheckDigit = '2',
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = "UPCE",
+                        CodeLength = 8
+                    }
+                };
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            AssertHelpers.AreComparablyEqual(expected.Code, actual.Code);
+        }
 
         [TestMethod]
         public void ProductCodeTypes_Parse_00300240509982_ProductCodeTypeUpcA()
