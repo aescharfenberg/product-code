@@ -37,6 +37,7 @@ namespace DWG.ProductCode
         /// </summary>
         public static IProductCodeSpecification Ucc15 => new UniformCodeCouncilSpecification("UCC-15", 15, "UCC-15");
 
+<<<<<<< HEAD:DWG.ProductCode/ProductCodeTypes.cs
         /// <summary>
         /// Universal Code Council, Length 16 (UCC-16).
         /// </summary>
@@ -50,6 +51,18 @@ namespace DWG.ProductCode
         /// <summary>
         /// All supported specifications.
         /// </summary>
+=======
+		/// <summary>
+		/// Universal Code Council, Length 16 (UCC-16).
+		/// </summary>
+		public static IProductCodeSpecification Ucc16 => new UniformCodeCouncilSpecification("UCC-16", 16, "UCC-16");
+
+		/// <summary>
+		/// Universal Code Council, Length 17 (UCC-17).
+		/// </summary>
+		public static IProductCodeSpecification Ucc17 => new UniformCodeCouncilSpecification("UCC-17", 17, "UCC-17");
+
+>>>>>>> pr/1:Scharfenberg.ProductCode/ProductCodeTypes.cs
         public static IEnumerable<IProductCodeSpecification> All => new[] {Plu, UpcE, UpcA, Ean, Gtin, Ucc15, Ucc16, Ucc17};
 
         public static IProductCode Interpolate(string code)
@@ -62,5 +75,8 @@ namespace DWG.ProductCode
             var productCode = productCodes.FirstOrDefault();
             return productCode;
         }
+
+		
+
     }
 }
