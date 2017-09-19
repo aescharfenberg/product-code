@@ -58,7 +58,7 @@ namespace Scharfenberg.ProductCode.Tests.Unit
             AssertHelpers.AreComparablyEqual(expected, actual);
         }
         
-         [TestMethod]
+        [TestMethod]
         public void ProductCodeTypes_Interopolate_025200000148_ProductCodeTypeUpcA()
         {
             // Arrange
