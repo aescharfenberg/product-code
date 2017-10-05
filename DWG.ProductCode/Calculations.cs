@@ -12,7 +12,7 @@ namespace DWG.ProductCode
 
             for (var position = 1; position <= code.Length; ++position)
             {
-                var index = position - 1;
+                var index = code.Length - position;
                 var digit = (int)char.GetNumericValue(code, index);
 
                 if (position % 2 == 0)

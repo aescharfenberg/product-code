@@ -10,7 +10,7 @@ namespace DWG.ProductCode.Specifications
     {        
         public string Moniker { get; }
 
-        public int CodeLength { get; }
+        public int MaxCodeLength { get; }
 
         public string UccName { get; }
 
@@ -19,7 +19,7 @@ namespace DWG.ProductCode.Specifications
         internal UniformCodeCouncilSpecification(string moniker, int codeLength, string uccName = null)
         {
             Moniker = moniker;
-            CodeLength = codeLength;
+            MaxCodeLength = codeLength;
             UccName = uccName;
             Regex = new Regex($"^[0-9]{{{codeLength - 1}}}(?<checkDigit>[0-9])$");
         }
@@ -63,7 +63,7 @@ namespace DWG.ProductCode.Specifications
                     ProductCodeType = new ProductCodeType
                     {
                         Moniker = Moniker,
-                        CodeLength = CodeLength
+                        CodeLength = MaxCodeLength
                     }
                 };
 
@@ -88,7 +88,7 @@ namespace DWG.ProductCode.Specifications
             var code = match.Value;
 
             // Leading zero does not count toward check digit for 13-digit UCCs.
-            if (CodeLength == 13 && code.StartsWith("0"))
+            if (MaxCodeLength == 13 && code.StartsWith("0"))
                 code = code.Substring(1, code.Length - 1);
 
             var codeWithoutCheckDigit = code.Substring(0, code.Length - 1);

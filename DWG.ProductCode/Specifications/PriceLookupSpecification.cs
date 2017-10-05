@@ -9,7 +9,7 @@ namespace DWG.ProductCode.Specifications
     {
         public string Moniker => "PLU";
 
-        public int CodeLength => 5;
+        public int MaxCodeLength => 5;
 
         public IProductCode Parse(string code)
         {
