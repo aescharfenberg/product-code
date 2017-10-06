@@ -35,7 +35,7 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Interopolate_0300240509982_ProductCodeTypeUpcA()
+        public void ProductCodeTypes_Interopolate_0300240509982_ProductCodeTypeEan()
         {
             // Arrange
             const string code = "0300240509982";
@@ -57,7 +57,7 @@ namespace DWG.ProductCode.Tests.Unit
             // Assert
             AssertHelpers.AreComparablyEqual(expected, actual);
         }
-        
+
         [TestMethod]
         public void ProductCodeTypes_Interopolate_025200000148_ProductCodeTypeUpcA()
         {
@@ -80,6 +80,67 @@ namespace DWG.ProductCode.Tests.Unit
 
             // Assert
             AssertHelpers.AreComparablyEqual(expected.Code, actual.Code);
+        }
+
+        [TestMethod]
+        public void ProductCodeTypes_Interopolate_7808772040230_ProductCodeTypeEan()
+        {
+            // Arrange
+            const string code = "7808772040230";
+            var expected =
+                new Models.ProductCode
+                {
+                    Code = code,
+                    CheckDigit = '0',
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = "EAN",
+                        CodeLength = 13
+                    }
+                };
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            AssertHelpers.AreComparablyEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ProductCodeTypes_Interopolate_8412345000001_ReturnsNull()
+        {
+            // Arrange
+            const string code = "8412345000001";
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            Assert.IsNull(actual);
+        }
+
+        [TestMethod]
+        public void ProductCodeTypes_Interopolate_8412345000003_ProductCodeTypeEan()
+        {
+            // Arrange
+            const string code = "8412345000003";
+            var expected =
+                new Models.ProductCode
+                {
+                    Code = code,
+                    CheckDigit = '3',
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = "EAN",
+                        CodeLength = 13
+                    }
+                };
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            AssertHelpers.AreComparablyEqual(expected, actual);
         }
 
         [TestMethod]

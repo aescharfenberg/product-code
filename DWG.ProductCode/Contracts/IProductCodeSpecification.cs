@@ -6,6 +6,8 @@
 
         IProductCode Parse(string code);
 
+        int MaxCodeLength { get;  }
+
         bool TryParse(string code, out IProductCode productCode);
 
         bool IsValid(string code);
