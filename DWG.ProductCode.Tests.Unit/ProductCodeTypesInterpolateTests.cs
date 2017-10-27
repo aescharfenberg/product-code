@@ -71,7 +71,7 @@ namespace DWG.ProductCode.Tests.Unit
                     ProductCodeType = new ProductCodeType
                     {
                         Moniker = "UPCE",
-                        CodeLength = 8
+                        CodeLength = 6
                     }
                 };
 
