@@ -1,9 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>DWG.ProductCode</AssemblyName>
     <RootNamespace>DWG.ProductCode</RootNamespace>
+    <Authors>Allen E. Scharfenberg</Authors>
+    <Company></Company>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/aescharfenberg/product-code</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/aescharfenberg/product-code</RepositoryUrl>
+    <Description>.NET (C#) library that makes working with product codes simple and easy. Supports PLU, UPC-A, UPC-E, EAN, and GTIN.</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

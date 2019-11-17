@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using DWG.ProductCode.Data;
 using DWG.ProductCode.Tests.Unit.Models;
-using DWG.TestHelpers;
+using DWG.ProductCode.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DWG.ProductCode.Tests.Unit

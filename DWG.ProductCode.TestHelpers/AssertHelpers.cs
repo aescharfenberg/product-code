@@ -3,7 +3,7 @@ using System.Linq;
 using KellermanSoftware.CompareNetObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DWG.TestHelpers
+namespace DWG.ProductCode.TestHelpers
 {
     public static class AssertHelpers
     {

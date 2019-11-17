@@ -20,7 +20,7 @@ namespace DWG.ProductCode
         /// <summary>
         /// Zero-Suppressed Universal Product Code (UPC-E).
         /// </summary>
-        public static IProductCodeSpecification UpcE => new UniformCodeCouncilSpecification("UPC-E", 8);
+        public static IProductCodeSpecification UpcE => new UniformCodeCouncilSpecification("UPC-E", 6);
 
         /// <summary>
         /// European Article Number (EAN/UCC-13).
