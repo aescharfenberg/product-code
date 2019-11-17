@@ -1,6 +1,6 @@
 # DWG Product Code
 
-A .NET (C#) library that makes working with product codes simple and easy. Brought to you by the Developer Workgroup (DWG).
+A .NET (C#) library that makes working with product codes simple and easy. Supports PLU, UPC-A, UPC-E, EAN, and GTIN. Brought to you by the Developer Workgroup (DWG).
 
 ## Price Lookup (PLU)
 
