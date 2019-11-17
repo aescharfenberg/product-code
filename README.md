@@ -1,6 +1,6 @@
-# product-code
+# DWG Product Code
 
-A .NET (C#) implementation of a library to work with various types of product codes.
+A .NET (C#) library that makes working with product codes simple and easy. Brought to you by the Developer Workgroup (DWG).
 
 ## Price Lookup (PLU)
 
