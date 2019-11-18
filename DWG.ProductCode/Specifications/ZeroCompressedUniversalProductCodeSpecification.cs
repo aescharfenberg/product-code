@@ -6,23 +6,15 @@ using DWG.ProductCode.Models;
 
 namespace DWG.ProductCode.Specifications
 {
-    internal class UniformCodeCouncilSpecification : IProductCodeSpecification
-    {        
-        public string Moniker { get; }
+    internal class ZeroCompressedUniversalProductCodeSpecification : IProductCodeSpecification
+    {
+        public string Moniker => "UPC-E";
 
-        public int MaxCodeLength { get; }
+        public int MinCodeLength => 6;
 
-        public string UccName { get; }
+        public int MaxCodeLength => 8;
 
-        private Regex Regex { get; }
-
-        internal UniformCodeCouncilSpecification(string moniker, int codeLength, string uccName = null)
-        {
-            Moniker = moniker;
-            MaxCodeLength = codeLength;
-            UccName = uccName;
-            Regex = new Regex($"^[0-9]{{{codeLength - 1}}}(?<checkDigit>[0-9])$");
-        }
+        private Regex Regex => new Regex($"^0?(?<code>[0-9]{{{MinCodeLength}}})(?<checkDigit>[0-9])?$");
 
         public IProductCode Parse(string code)
         {
@@ -55,11 +47,15 @@ namespace DWG.ProductCode.Specifications
 
         private Models.ProductCode BuildProductCode(Match match)
         {
+            var codeGroup = match.Groups["code"];
+            var code = codeGroup.Value;
+            var calculatedCheckDigit = Converters.ConvertToUpcA(code).ToCharArray().Last();
+
             var productCode =
                 new Models.ProductCode
                 {
-                    Code = match.Value,
-                    CheckDigit = match.Groups["checkDigit"].Value.ToCharArray().Single(),
+                    Code = $"0{code}{calculatedCheckDigit}",
+                    CheckDigit = calculatedCheckDigit,
                     ProductCodeType = new ProductCodeType
                     {
                         Moniker = Moniker,
@@ -80,20 +76,17 @@ namespace DWG.ProductCode.Specifications
             return null;
         }
 
-        private bool IsCheckDigitValid(Match match)
+        private static bool IsCheckDigitValid(Match match)
         {
+            var codeGroup = match.Groups["code"];
+            var code = codeGroup.Value;
+
             var checkDigitGroup = match.Groups["checkDigit"];
+            if (!checkDigitGroup.Success) // Optional
+                return true;
             var checkDigit = checkDigitGroup.Value.ToCharArray().Single();
 
-            var code = match.Value;
-
-            // Leading zero does not count toward check digit for 13-digit UCCs.
-            if (MaxCodeLength == 13 && code.StartsWith("0"))
-                code = code.Substring(startIndex: 1, code.Length - 1);
-
-            var codeWithoutCheckDigit = code.Substring(startIndex: 0, code.Length - 1);
-            var calculatedCheckDigit = Calculations.CalculateCheckDigit(codeWithoutCheckDigit);
-
+            var calculatedCheckDigit = Converters.ConvertToUpcA(code).ToCharArray().Last();
             return checkDigit == calculatedCheckDigit;
         }
     }

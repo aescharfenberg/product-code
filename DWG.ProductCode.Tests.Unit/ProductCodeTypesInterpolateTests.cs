@@ -35,7 +35,7 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Interopolate_0300240509982_ProductCodeTypeEan()
+        public void ProductCodeTypes_Interpolate_0300240509982_ProductCodeTypeEan()
         {
             // Arrange
             const string code = "0300240509982";
@@ -59,19 +59,19 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Interopolate_025200000148_ProductCodeTypeUpcA()
+        public void ProductCodeTypes_Interpolate_025200000148_ProductCodeTypeUpcA()
         {
             // Arrange
-            const string code = "250142";
+            const string code = "025200000148";
             var expected =
                 new Models.ProductCode
                 {
                     Code = code,
-                    CheckDigit = '2',
+                    CheckDigit = '8',
                     ProductCodeType = new ProductCodeType
                     {
-                        Moniker = "UPCE",
-                        CodeLength = 6
+                        Moniker = "UPC-A",
+                        CodeLength = 12
                     }
                 };
 
@@ -83,7 +83,79 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Interopolate_7808772040230_ProductCodeTypeEan()
+        public void ProductCodeTypes_Interpolate_250142_ProductCodeTypeUpcE()
+        {
+            // Arrange
+            const string code = "250142";
+            var expected =
+                new Models.ProductCode
+                {
+                    Code = "02501428",
+                    CheckDigit = '8',
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = "UPC-E",
+                        CodeLength = 8
+                    }
+                };
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            AssertHelpers.AreComparablyEqual(expected.Code, actual.Code);
+        }
+
+        [TestMethod]
+        public void ProductCodeTypes_Interpolate_2501428_ProductCodeTypeUpcE()
+        {
+            // Arrange
+            const string code = "250142";
+            var expected =
+                new Models.ProductCode
+                {
+                    Code = "02501428",
+                    CheckDigit = '8',
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = "UPC-E",
+                        CodeLength = 8
+                    }
+                };
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            AssertHelpers.AreComparablyEqual(expected.Code, actual.Code);
+        }
+
+        [TestMethod]
+        public void ProductCodeTypes_Interpolate_02501428_ProductCodeTypeUpcE()
+        {
+            // Arrange
+            const string code = "02501428";
+            var expected =
+                new Models.ProductCode
+                {
+                    Code = "02501428",
+                    CheckDigit = '8',
+                    ProductCodeType = new ProductCodeType
+                    {
+                        Moniker = "UPC-E",
+                        CodeLength = 8
+                    }
+                };
+
+            // Act
+            var actual = ProductCodeTypes.Interpolate(code);
+
+            // Assert
+            AssertHelpers.AreComparablyEqual(expected.Code, actual.Code);
+        }
+
+        [TestMethod]
+        public void ProductCodeTypes_Interpolate_7808772040230_ProductCodeTypeEan()
         {
             // Arrange
             const string code = "7808772040230";
@@ -107,7 +179,7 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Interopolate_8412345000001_ReturnsNull()
+        public void ProductCodeTypes_Interpolate_8412345000001_ReturnsNull()
         {
             // Arrange
             const string code = "8412345000001";
@@ -120,7 +192,7 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Interopolate_8412345000003_ProductCodeTypeEan()
+        public void ProductCodeTypes_Interpolate_8412345000003_ProductCodeTypeEan()
         {
             // Arrange
             const string code = "8412345000003";
