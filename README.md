@@ -26,4 +26,5 @@ The following resources contain a wealth of information about the various types 
 
 * [Internet UPC Database](https://upcdatabase.com/)
   * [Check Digit Calculator](https://upcdatabase.com/checkdigit.asp)
-* [TALtech UPC Bardcode Information (and UPC-E to UPC-A Converter)](https://www.taltech.com/barcodesoftware/symbologies/upc)
+* [TALtech - UPC Bardcode Information](https://www.taltech.com/barcodesoftware/symbologies/upc)
+* [BarCodeIsland - UPC-E Symbology](http://www.barcodeisland.com/upce.phtml)
