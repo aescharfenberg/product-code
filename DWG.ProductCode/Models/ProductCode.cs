@@ -11,5 +11,10 @@ namespace DWG.ProductCode.Models
         public char? CheckDigit { get; set; }
 
         public IProductCodeType ProductCodeType { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ProductCodeType?.Moniker} {Code} (Length = {CodeLength}, CheckDigit = {CheckDigit})";
+        }
     }
 }
