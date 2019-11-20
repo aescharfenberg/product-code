@@ -10,12 +10,21 @@ First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
 PM> Install-Package DWG.ProductCode
 ```
 
-Now, let's interpolate some product codes:
+Now, let's get to work! If you want to see what kind of code you are working with, use the Interpolate function like so:
 
 ```csharp
-var code = "025200000148";
-var productCode = ProductCodeTypes.Interpolate(code);
+var barcode = "025200000148";
+var productCode = ProductCodeTypes.Interpolate(barcode);
+Console.Out.WriteLine(productCode);
 ```
+
+Output:
+
+```
+UPC-A 025200000148 (Length = 12, CheckDigit = 8)
+```
+
+Neat! So, the barcode "025200000148" is a UPC-A. UPC-A barcodes have a length of 12, and the right-most digit (8) is a check digit used to ensure that the barcode scan was clean and complete.
 
 ## Price Lookup (PLU)
 
