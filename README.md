@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/pf6x7pjg984fbbym?svg=true)](https://ci.appveyor.com/project/aescharfenberg/product-code)
+
 # DWG Product Code
 
 .NET (C#) library that makes working with product codes simple and easy. Supports PLU, UPC-A, UPC-E, EAN, and GTIN. Brought to you by the Developer Workgroup (DWG).
