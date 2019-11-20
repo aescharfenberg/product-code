@@ -1,6 +1,21 @@
 # DWG Product Code
 
-A .NET (C#) library that makes working with product codes simple and easy. Supports PLU, UPC-A, UPC-E, EAN, and GTIN. Brought to you by the Developer Workgroup (DWG).
+.NET (C#) library that makes working with product codes simple and easy. Supports PLU, UPC-A, UPC-E, EAN, and GTIN. Brought to you by the Developer Workgroup (DWG).
+
+# Quick Start
+
+First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). Then, install [DWG Product Code](https://www.nuget.org/packages/DWG.ProductCode/) from the package manager console:
+
+```
+PM> Install-Package DWG.ProductCode
+```
+
+Now, let's interpolate some product codes:
+
+```csharp
+var code = "025200000148";
+var productCode = ProductCodeTypes.Interpolate(code);
+```
 
 ## Price Lookup (PLU)
 
