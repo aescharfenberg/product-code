@@ -40,21 +40,13 @@ namespace DWG.ProductCode.Specifications
             return match != null && match.Success;
         }
 
-        private Models.ProductCode BuildProductCode(Capture match)
+        private static ProductLookup BuildProductCode(Capture match)
         {
-            var code = match.Value;
-
-            var productCode =
-                new Models.ProductCode
-                {
-                    Code = code,
-                    CheckDigit = null,
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = Moniker,
-                        CodeLength = code.Length
-                    }
-                };
+            var productCode = new ProductLookup
+            {
+                Code = match.Value,
+                CheckDigit = null
+            };
 
             return productCode;
         }

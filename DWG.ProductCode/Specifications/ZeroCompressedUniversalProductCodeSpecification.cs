@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using DWG.ProductCode.Contracts;
+using DWG.ProductCode.Converters;
 using DWG.ProductCode.Models;
 
 namespace DWG.ProductCode.Specifications
@@ -45,23 +46,17 @@ namespace DWG.ProductCode.Specifications
             return match != null && match.Success;
         }
 
-        private Models.ProductCode BuildProductCode(Match match)
+        private UniversalProductCodeTypeE BuildProductCode(Match match)
         {
             var codeGroup = match.Groups["code"];
             var code = codeGroup.Value;
-            var calculatedCheckDigit = Converters.ConvertToUpcA(code).ToCharArray().Last();
+            var calculatedCheckDigit = CalculateCheckDigit(code);
 
-            var productCode =
-                new Models.ProductCode
-                {
-                    Code = $"0{code}{calculatedCheckDigit}",
-                    CheckDigit = calculatedCheckDigit,
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = Moniker,
-                        CodeLength = MaxCodeLength
-                    }
-                };
+            var productCode = new UniversalProductCodeTypeE
+            {
+                Code = $"0{code}{calculatedCheckDigit}",
+                CheckDigit = calculatedCheckDigit
+            };
 
             return productCode;
         }
@@ -86,8 +81,13 @@ namespace DWG.ProductCode.Specifications
                 return true;
             var checkDigit = checkDigitGroup.Value.ToCharArray().Single();
 
-            var calculatedCheckDigit = Converters.ConvertToUpcA(code).ToCharArray().Last();
+            var calculatedCheckDigit = CalculateCheckDigit(code);
             return checkDigit == calculatedCheckDigit;
+        }
+
+        private static char CalculateCheckDigit(string code)
+        {
+            return TaltechRegexUpcEConverter.ConvertToUpcA(code).ToCharArray().Last();
         }
     }
 }

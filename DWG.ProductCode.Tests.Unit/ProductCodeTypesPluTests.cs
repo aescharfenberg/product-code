@@ -59,17 +59,11 @@ namespace DWG.ProductCode.Tests.Unit
                 // Arrange
                 var priceLookup = priceLookupEnumerator.Current;
                 var pluCode = priceLookup.PluCode;
-                var expected =
-                    new Models.ProductCode
-                    {
-                        Code = pluCode,
-                        CheckDigit = null,
-                        ProductCodeType = new ProductCodeType
-                        {
-                            Moniker = ProductCodeTypes.Plu.Moniker,
-                            CodeLength = pluCode.Length
-                        }
-                    };
+                var expected = new ProductLookup
+                {
+                    Code = pluCode,
+                    CheckDigit = null
+                };
 
                 // Act
                 var actual = ProductCodeTypes.Plu.Parse(pluCode);

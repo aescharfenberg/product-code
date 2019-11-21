@@ -16,15 +16,10 @@ namespace DWG.ProductCode.Tests.Unit
             // Arrange
             const string code = "300240509982";
             var expected =
-                new Models.ProductCode
+                new UniversalProductCodeTypeA
                 {
                     Code = code,
-                    CheckDigit = '2',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "UPC-A",
-                        CodeLength = 12
-                    }
+                    CheckDigit = '2'
                 };
 
             // Act
@@ -39,17 +34,11 @@ namespace DWG.ProductCode.Tests.Unit
         {
             // Arrange
             const string code = "0300240509982";
-            var expected =
-                new Models.ProductCode
-                {
-                    Code = code,
-                    CheckDigit = '2',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "EAN",
-                        CodeLength = 13
-                    }
-                };
+            var expected = new EuropeanArticleNumber
+            {
+                Code = code,
+                CheckDigit = '2'
+            };
 
             // Act
             var actual = ProductCodeTypes.Interpolate(code);
@@ -63,17 +52,11 @@ namespace DWG.ProductCode.Tests.Unit
         {
             // Arrange
             const string code = "025200000148";
-            var expected =
-                new Models.ProductCode
-                {
-                    Code = code,
-                    CheckDigit = '8',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "UPC-A",
-                        CodeLength = 12
-                    }
-                };
+            var expected = new UniversalProductCodeTypeA 
+            {
+                Code = code, 
+                CheckDigit = '8'
+            };
 
             // Act
             var actual = ProductCodeTypes.Interpolate(code);
@@ -88,15 +71,10 @@ namespace DWG.ProductCode.Tests.Unit
             // Arrange
             const string code = "250142";
             var expected =
-                new Models.ProductCode
+                new UniversalProductCodeTypeE
                 {
                     Code = "02501428",
-                    CheckDigit = '8',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "UPC-E",
-                        CodeLength = 8
-                    }
+                    CheckDigit = '8'
                 };
 
             // Act
@@ -111,17 +89,11 @@ namespace DWG.ProductCode.Tests.Unit
         {
             // Arrange
             const string code = "250142";
-            var expected =
-                new Models.ProductCode
-                {
-                    Code = "02501428",
-                    CheckDigit = '8',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "UPC-E",
-                        CodeLength = 8
-                    }
-                };
+            var expected = new UniversalProductCodeTypeE
+            {
+                Code = "02501428",
+                CheckDigit = '8'
+            };
 
             // Act
             var actual = ProductCodeTypes.Interpolate(code);
@@ -135,17 +107,11 @@ namespace DWG.ProductCode.Tests.Unit
         {
             // Arrange
             const string code = "02501428";
-            var expected =
-                new Models.ProductCode
-                {
-                    Code = "02501428",
-                    CheckDigit = '8',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "UPC-E",
-                        CodeLength = 8
-                    }
-                };
+            var expected = new UniversalProductCodeTypeE
+            {
+                Code = "02501428",
+                CheckDigit = '8'
+            };
 
             // Act
             var actual = ProductCodeTypes.Interpolate(code);
@@ -159,17 +125,11 @@ namespace DWG.ProductCode.Tests.Unit
         {
             // Arrange
             const string code = "7808772040230";
-            var expected =
-                new Models.ProductCode
-                {
-                    Code = code,
-                    CheckDigit = '0',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "EAN",
-                        CodeLength = 13
-                    }
-                };
+            var expected = new EuropeanArticleNumber
+            {
+                Code = code,
+                CheckDigit = '0'
+            };
 
             // Act
             var actual = ProductCodeTypes.Interpolate(code);
@@ -196,17 +156,11 @@ namespace DWG.ProductCode.Tests.Unit
         {
             // Arrange
             const string code = "8412345000003";
-            var expected =
-                new Models.ProductCode
-                {
-                    Code = code,
-                    CheckDigit = '3',
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = "EAN",
-                        CodeLength = 13
-                    }
-                };
+            var expected = new EuropeanArticleNumber
+            {
+                Code = code,
+                CheckDigit = '3'
+            };
 
             // Act
             var actual = ProductCodeTypes.Interpolate(code);

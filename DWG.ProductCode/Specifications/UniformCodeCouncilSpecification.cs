@@ -53,19 +53,13 @@ namespace DWG.ProductCode.Specifications
             return match != null && match.Success;
         }
 
-        private Models.ProductCode BuildProductCode(Match match)
+        private UniformCode BuildProductCode(Match match)
         {
-            var productCode =
-                new Models.ProductCode
-                {
-                    Code = match.Value,
-                    CheckDigit = match.Groups["checkDigit"].Value.ToCharArray().Single(),
-                    ProductCodeType = new ProductCodeType
-                    {
-                        Moniker = Moniker,
-                        CodeLength = MaxCodeLength
-                    }
-                };
+            var productCode = new UniformCode(Moniker)
+            {
+                Code = match.Value,
+                CheckDigit = match.Groups["checkDigit"].Value.ToCharArray().Single()
+            };
 
             return productCode;
         }

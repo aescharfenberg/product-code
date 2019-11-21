@@ -2,7 +2,7 @@
 
 namespace DWG.ProductCode.Models
 {
-    internal class ProductCode : IProductCode
+    internal abstract class ProductCode : IProductCode
     {
         public string Code { get; set; }
 
@@ -10,7 +10,7 @@ namespace DWG.ProductCode.Models
 
         public char? CheckDigit { get; set; }
 
-        public IProductCodeType ProductCodeType { get; set; }
+        public abstract IProductCodeType ProductCodeType { get; }
 
         public override string ToString()
         {
