@@ -12,12 +12,16 @@ First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
 PM> Install-Package DWG.ProductCode
 ```
 
-Now, let's get to work! If you want to see what kind of code you are working with, use the Interpolate function like so:
+Now, let's get to work!
+
+## Interpolate
+
+If you want to see what kind of barcode you are working with, use the Interpolate function like so:
 
 ```csharp
 var barcode = "025200000148";
-var productCode = ProductCodeTypes.Interpolate(barcode);
-Console.Out.WriteLine(productCode);
+var upcA = DWG.ProductCode.ProductCodeTypes.Interpolate(barcode);
+Console.Out.WriteLine(upcA);
 ```
 
 Output:
@@ -27,6 +31,26 @@ UPC-A 025200000148 (Length = 12, CheckDigit = 8)
 ```
 
 Neat! So, the barcode "025200000148" is a UPC-A. UPC-A barcodes have a length of 12, and the right-most digit (8) is a check digit used to ensure that the barcode scan was clean and complete.
+
+## Convert
+
+But barcode "025200000148" is special. That UPC-A can be converted to a zero-compressed UPC-E barcode that can be printed on small packages like jars of baby food.
+
+Let's convert it and see! To do that, we use the Convert set of functions like so:
+
+```csharp
+var upcA = "025200000148";
+var upcE = DWG.ProductCode.Convert.FromUpcA(upcA).ToUpcE();
+Console.Out.WriteLine(upcE);
+```
+
+Output:
+
+```
+UPC-E 0251428 (Length = 8, CheckDigit = 8)
+```
+
+The UPC-E version of the barcode is 33% smaller--much easier to print on small packages. UPC-E barcodes have a length of 8, and the right-most digit (8) is the check-digit from the corresponding UPC-A barcode. UPC-E barcodes can be converted back and forth from UPC-A barcodes, but be careful. Not all UPC-A barcodes can be converted to UPC-E format.
 
 ## Price Lookup (PLU)
 
