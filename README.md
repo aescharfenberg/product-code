@@ -19,8 +19,11 @@ Now, let's get to work!
 If you want to see what kind of barcode you are working with, use the Interpolate set of functions like so:
 
 ```csharp
+using System;
+using DWG.ProductCode;
+
 var barcode = "025200000148";
-var upcA = DWG.ProductCode.Interpolate.FromString(barcode);
+var upcA = Interpolate.FromString(barcode);
 Console.Out.WriteLine(upcA);
 ```
 
@@ -39,8 +42,11 @@ But barcode "025200000148" is special. That UPC-A can be converted to a zero-com
 Let's convert it and see! To do that, we use the Convert set of functions like so:
 
 ```csharp
+using System;
+using DWG.ProductCode;
+
 var upcA = "025200000148";
-var upcE = DWG.ProductCode.Convert.FromUpcA(upcA).ToUpcE();
+var upcE = Convert.FromUpcA(upcA).ToUpcE();
 Console.Out.WriteLine(upcE);
 ```
 
@@ -57,8 +63,11 @@ The UPC-E version of the barcode is 33% smaller--much easier to print on small p
 If you already know what kind of barcode you want to work with, you can use the Parse set of functions like so:
 
 ```csharp
+using System;
+using DWG.ProductCode;
+
 var barcode = "025200000148";
-var upcA = DWG.ProductCode.Parse.AsUpcA(barcode);
+var upcA = Parse.AsUpcA(barcode);
 Console.Out.WriteLine(upcA);
 ```
 
@@ -73,8 +82,11 @@ UPC-A 025200000148 (Length = 12, CheckDigit = 8)
 But, just in case you know what kind of barcode you want to work with BUT you are worried that maybe your users may not, use the TryParse set of functions like so:
 
 ```csharp
+using System;
+using DWG.ProductCode;
+
 var barcode = "99999";
-if (DWG.ProductCode.TryParse.AsUpcA(barcode, out var upcA))
+if (TryParse.AsUpcA(barcode, out var upcA))
 {
   Console.Out.WriteLine(upcA);
 }
