@@ -16,7 +16,7 @@ Now, let's get to work!
 
 ## Interpolate
 
-If you want to see what kind of barcode you are working with, use the Interpolate function like so:
+If you want to see what kind of barcode you are working with, use the Interpolate set of functions like so:
 
 ```csharp
 var barcode = "025200000148";
