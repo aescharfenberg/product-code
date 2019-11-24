@@ -32,22 +32,6 @@ UPC-A 025200000148 (Length = 12, CheckDigit = 8)
 
 Neat! So, the barcode "025200000148" is a UPC-A. UPC-A barcodes have a length of 12, and the right-most digit (8) is a check digit used to ensure that the barcode scan was clean and complete.
 
-## Parse
-
-If you already know what kind of barcode you want to work with, you can use the Parse set of functions like so:
-
-```csharp
-var barcode = "025200000148";
-var upcA = DWG.ProductCode.Parse.AsUpcA(barcode);
-Console.Out.WriteLine(upcA);
-```
-
-Output:
-
-```
-UPC-A 025200000148 (Length = 12, CheckDigit = 8)
-```
-
 ## Convert
 
 But barcode "025200000148" is special. That UPC-A can be converted to a zero-compressed UPC-E barcode that can be printed on small packages like jars of baby food.
@@ -67,6 +51,46 @@ UPC-E 0251428 (Length = 8, CheckDigit = 8)
 ```
 
 The UPC-E version of the barcode is 33% smaller--much easier to print on small packages. UPC-E barcodes have a length of 8, and the right-most digit (8) is the check-digit from the corresponding UPC-A barcode. UPC-E barcodes can be converted back and forth from UPC-A barcodes, but be careful. Not all UPC-A barcodes can be converted to UPC-E format.
+
+## Parse
+
+If you already know what kind of barcode you want to work with, you can use the Parse set of functions like so:
+
+```csharp
+var barcode = "025200000148";
+var upcA = DWG.ProductCode.Parse.AsUpcA(barcode);
+Console.Out.WriteLine(upcA);
+```
+
+Output:
+
+```
+UPC-A 025200000148 (Length = 12, CheckDigit = 8)
+```
+
+## TryParse
+
+But, just in case you know what kind of barcode you want to work with BUT you are worried that maybe your users may not, use the TryParse set of functions like so:
+
+```csharp
+var barcode = "99999";
+if (DWG.ProductCode.TryParse.AsUpcA(barcode, out var upcA))
+{
+  Console.Out.WriteLine(upcA);
+}
+else
+{
+  Console.Out.WriteLine("Whoops! That's not a UPC-A!")
+}
+```
+
+Output:
+
+```
+Whoops! That's not a UPC-A!
+```
+
+Uh oh, that's not a UPC-A! We should let the user know so that they can try again.
 
 ## Price Lookup (PLU)
 
