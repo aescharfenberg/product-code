@@ -20,7 +20,7 @@ If you want to see what kind of barcode you are working with, use the Interpolat
 
 ```csharp
 var barcode = "025200000148";
-var upcA = DWG.ProductCode.Interpolate.From(barcode);
+var upcA = DWG.ProductCode.Interpolate.FromString(barcode);
 Console.Out.WriteLine(upcA);
 ```
 
