@@ -32,6 +32,22 @@ UPC-A 025200000148 (Length = 12, CheckDigit = 8)
 
 Neat! So, the barcode "025200000148" is a UPC-A. UPC-A barcodes have a length of 12, and the right-most digit (8) is a check digit used to ensure that the barcode scan was clean and complete.
 
+## Parse
+
+If you already know what kind of barcode you want to work with, you can use the Parse set of functions like so:
+
+```csharp
+var barcode = "025200000148";
+var upcA = DWG.ProductCode.Parse.AsUpcA(barcode);
+Console.Out.WriteLine(upcA);
+```
+
+Output:
+
+```
+UPC-A 025200000148 (Length = 12, CheckDigit = 8)
+```
+
 ## Convert
 
 But barcode "025200000148" is special. That UPC-A can be converted to a zero-compressed UPC-E barcode that can be printed on small packages like jars of baby food.
