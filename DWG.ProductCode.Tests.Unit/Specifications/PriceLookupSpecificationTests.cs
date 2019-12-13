@@ -1,19 +1,20 @@
 using System.Diagnostics.CodeAnalysis;
 using DWG.ProductCode.Data;
 using DWG.ProductCode.Models;
+using DWG.ProductCode.Specifications;
 using DWG.ProductCode.TestHelpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace DWG.ProductCode.Tests.Unit
+namespace DWG.ProductCode.Tests.Unit.Specifications
 {
     [TestClass]
-    [SuppressMessage("ReSharper", "UnusedMember.Global", Justification = "Unit test")]
-    public class ProductCodeTypesPluTests
+    public class PriceLookupSpecificationTests
     {
         [TestMethod]
-        public void ProductCodeTypes_Plu_IsValid_IfspGlobalPriceLookupData_ReturnsTrue()
+        public void PriceLookupSpecification_IsValid_IfspGlobalPriceLookupData_ReturnsTrue()
         {
             var priceLookupEnumerator = IfspGlobalPriceLookupData.GetEmumerator();
+            var subject = new PriceLookupSpecification();
             while (priceLookupEnumerator.MoveNext())
             {
                 // Arrange
@@ -22,7 +23,7 @@ namespace DWG.ProductCode.Tests.Unit
                 const bool expected = true;
 
                 // Act
-                var actual = ProductCodeTypes.Plu.IsValid(pluCode);
+                var actual = subject.IsValid(pluCode);
 
                 // Assert
                 Assert.AreEqual(expected, actual, $"Known valid IFSP Global PLU '{pluCode}' IsValid = {actual}.");
@@ -30,9 +31,10 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Plu_IsValid_IfspGlobalPriceLookupDataWithCheckDigits_ReturnsTrue()
+        public void PriceLookupSpecification_IsValid_IfspGlobalPriceLookupDataWithCheckDigits_ReturnsFalse()
         {
             var priceLookupEnumerator = IfspGlobalPriceLookupData.GetEmumerator();
+            var subject = new PriceLookupSpecification();
             while (priceLookupEnumerator.MoveNext())
             {
                 // Arrange
@@ -43,7 +45,7 @@ namespace DWG.ProductCode.Tests.Unit
                 const bool expected = false;
 
                 // Act
-                var actual = ProductCodeTypes.Plu.IsValid(pluCodeWithCheckDigit);
+                var actual = subject.IsValid(pluCodeWithCheckDigit);
 
                 // Assert
                 Assert.AreEqual(expected, actual, $"Known valid IFSP Global PLU '{pluCode}' with check digit '{checkDigit}' (invalid) IsValid = {actual}.");
@@ -51,9 +53,10 @@ namespace DWG.ProductCode.Tests.Unit
         }
 
         [TestMethod]
-        public void ProductCodeTypes_Plu_Parse_IfspGlobalPriceLookupData_ReturnsExpectedPluProductCode()
+        public void PriceLookupSpecification_Parse_IfspGlobalPriceLookupData_ReturnsExpectedPluProductCode()
         {
             var priceLookupEnumerator = IfspGlobalPriceLookupData.GetEmumerator();
+            var subject = new PriceLookupSpecification();
             while (priceLookupEnumerator.MoveNext())
             {
                 // Arrange
@@ -66,7 +69,7 @@ namespace DWG.ProductCode.Tests.Unit
                 };
 
                 // Act
-                var actual = ProductCodeTypes.Plu.Parse(pluCode);
+                var actual = subject.Parse(pluCode);
 
                 // Assert
                 AssertHelpers.AreComparablyEqual(expected, actual, $"Known valid IFSP Global PLU '{pluCode}' not parsed as expected.");

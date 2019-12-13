@@ -6,7 +6,7 @@ namespace DWG.ProductCode.Models
     {
         public override IProductCodeType ProductCodeType => new ProductCodeType
         {
-            Moniker = ProductCodeTypes.Plu.Moniker,
+            Moniker = ProductCodeSpecifications.Plu.Moniker,
             CodeLength = Code?.Length ?? 0
         };
     }

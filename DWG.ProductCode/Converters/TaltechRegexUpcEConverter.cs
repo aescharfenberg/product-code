@@ -31,10 +31,10 @@ namespace DWG.ProductCode.Converters
         public static string ConvertToUpcA(string code)
         {
             if (code == null)
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(code));
 
             if (code.Length != 6)
-                throw new ArgumentException();
+                throw new ArgumentException(ExceptionMessages.UpcELengthNotEqualTo6, nameof(code));
 
             Match match;
 

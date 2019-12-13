@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 
 namespace DWG.ProductCode
 {
@@ -7,6 +9,9 @@ namespace DWG.ProductCode
         /// <see cref="http://www.gs1.org/how-calculate-check-digit-manually"/>
         public static char CalculateCheckDigit(string code)
         {
+            if (code == null)
+                throw new ArgumentNullException(nameof(code));
+
             var evenSum = 0;
             var oddSum = 0;
 
@@ -22,7 +27,7 @@ namespace DWG.ProductCode
             }
 
             var checkDigit = (10 - (oddSum * 3 + evenSum) % 10) % 10;
-            return checkDigit.ToString().ToCharArray().Single();
+            return checkDigit.ToString(CultureInfo.InvariantCulture).ToCharArray().Single();
         }
     }
 }

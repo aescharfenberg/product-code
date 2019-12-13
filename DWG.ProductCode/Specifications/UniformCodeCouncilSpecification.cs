@@ -10,6 +10,8 @@ namespace DWG.ProductCode.Specifications
     {        
         public string Moniker { get; }
 
+        public int MinCodeLength => 12;
+
         public int MaxCodeLength { get; }
 
         public string UccName { get; }
@@ -82,10 +84,10 @@ namespace DWG.ProductCode.Specifications
             var code = match.Value;
 
             // Leading zero does not count toward check digit for 13-digit UCCs.
-            if (MaxCodeLength == 13 && code.StartsWith("0"))
-                code = code.Substring(startIndex: 1, code.Length - 1);
+            if (MaxCodeLength == 13 && code.StartsWith("0", StringComparison.OrdinalIgnoreCase))
+                code = code.Substring(1, code.Length - 1);
 
-            var codeWithoutCheckDigit = code.Substring(startIndex: 0, code.Length - 1);
+            var codeWithoutCheckDigit = code.Substring(0, code.Length - 1);
             var calculatedCheckDigit = Calculations.CalculateCheckDigit(codeWithoutCheckDigit);
 
             return checkDigit == calculatedCheckDigit;

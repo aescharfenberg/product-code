@@ -3,7 +3,7 @@
     /// <summary>
     /// Independently production-verified UPC-E to UPC-A converter courtesy of CQuest America, Inc.
     /// </summary>
-    public static class UpcEConverter
+    internal static class UpcEConverter
     {
         public static string UpcEtoA(string upcE)
         {
@@ -15,21 +15,21 @@
                     upcEValue = upcE;
                     break;
                 case 7:
-                    upcEValue = upcE.Substring(startIndex: 1, length: 6);
+                    upcEValue = upcE.Substring(1, 6);
                     break;
                 case 8:
-                    upcEValue = upcE.Substring(startIndex: 1, length: 6);
+                    upcEValue = upcE.Substring(1, 6);
                     break;
                 default:
                     return "";
 
             }
-            var digit1 = upcEValue.Substring(startIndex: 0, length: 1);
-            var digit2 = upcEValue.Substring(startIndex: 1, length: 1);
-            var digit3 = upcEValue.Substring(startIndex: 2, length: 1);
-            var digit4 = upcEValue.Substring(startIndex: 3, length: 1);
-            var digit5 = upcEValue.Substring(startIndex: 4, length: 1);
-            var digit6 = upcEValue.Substring(startIndex: 5, length: 1);
+            var digit1 = upcEValue.Substring(0, 1);
+            var digit2 = upcEValue.Substring(1, 1);
+            var digit3 = upcEValue.Substring(2, 1);
+            var digit4 = upcEValue.Substring(3, 1);
+            var digit5 = upcEValue.Substring(4, 1);
+            var digit6 = upcEValue.Substring(5, 1);
 
             string manufacturersId;
             string itemNumber;

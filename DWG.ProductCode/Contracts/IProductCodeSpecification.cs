@@ -6,7 +6,9 @@
 
         IProductCode Parse(string code);
 
-        int MaxCodeLength { get;  }
+        int MinCodeLength { get; }
+
+        int MaxCodeLength { get; }
 
         bool TryParse(string code, out IProductCode productCode);
 
